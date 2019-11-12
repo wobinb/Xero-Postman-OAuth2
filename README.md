@@ -5,11 +5,11 @@ A Postman collection for authenticating to the Xero API.
 Follow these steps to quickly get up and running with the Xero API and Postman:
 
 ### 1. Import the Xero OAuth 2.0 collection and Xero environment into Postman
-Click the button below and select the Desktop version of Postman (Chrome extension doesn't support environment variables):
+Click the button below and select the Desktop version of Postman (Chrome extension doesn't support environment variables). This will also install the Collection we'll be using. You'll have to download the OAuth 2.0.postman_environment file above and import this into Postman via the Import button in the top left of the Postman Workplace sceen.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9d6c212aaab7bd95d898)
 
-Alternatively, download the OAuth 2.0.postman_environment and Xero OAuth2.0.postman_collection JSON files above and Import them into Postman via the Import button in the top left of Postman.
+Alternatively, you can download th Xero OAuth2.0.postman_collection JSON file above and import it in the same manner as you did with the Environment. 
 
 ### 2. Create an OAuth2 app at https://developer.xero.com/myapps
 Go to the Xero developer portal and create an OAuth2 app.
