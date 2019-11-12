@@ -1,4 +1,4 @@
-# Xero-Postman
+# Xero-Postman OAuth 2.0
 A Postman collection for authenticating to the Xero API. 
 
 ## Steps to get up and running
@@ -61,20 +61,38 @@ Once complete you'll be passed back to Postman.
 
 ![GET request token](images/request.png)
 
-### 7. Get your oauth verifier
-Paste the authorization url into your browser, login to xero, select the org to connect to and copy the oauth verifier to your clipboard.
+### 7. Set your Access and Refresh Tokens
+We now have the last remaining tokens needed to access the Xero API. These need to be set in Postman, to do this:
+1. Highlight the Access Token
+1. Right-click on it
+1. Select Set > OAuth 2.0 > access_token
+
+Follow the same process for the Refresh Token.
 
 ![GET oauth verifier](images/verifier.png)
 
-### 7. Get your access token
-Paste the oauth verifier at the end of the GET Access Token URL in Postman. Hit Send on the request. 
+### 8. Find out which tenants (organisations) we are connected to
+
+1. Double-click on the GET Connections request
+1. Click Send
+1. Highlight the tenantId from the response and select Set > OAuth 2.0 > xero-tenant-id
 
 ![GET access token](images/access.png)
 
-Congrats! You're now authenticated and can start making API calls. Your access token will last for 30mins, after which time you'll need to report steps 4-6 to get a new token.
+Congrats! You're now authenticated and can start making API calls. Your access token will last for 12mins, after which time you'll need to refresh the token.
 
-### 8. Make your first API call!
-Click Send on the GET Organisation request to make your first API call.
+### 9. Make your first API call!
+1. Double-click to load the GET Invoices request
+1. Ensure No Auth is set on the Authorization tab
+1. Click Send
 
-### 9. Import our OpenAPI definition
+### 10. Refreshing the token
+1. Double-click to load the POST Refresh token request
+1. Ensure No Auth is set on the Authorization tab
+1. Click Send
+
+### 11. Import our OpenAPI definition - NOT TESTED
 Now that you're authenticated, import the [official Xero OpenAPI](https://github.com/XeroAPI/Xero-OpenAPI) (Swagger) description and import all the endpoints for the Accounting API. 
+
+### Notes:
+* We use the built in OAuth 2.0 support to get the token, however we then set this as an environment variable. So we don't need to use this support when making the normal API calls.
