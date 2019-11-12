@@ -10,14 +10,24 @@ Click the button below and select the Desktop version of Postman (Chrome extensi
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/44bab8dfdb636910ba15#?env%5BOAuth2.0%5D=W3sia2V5IjoiY2xpZW50X2lkIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6ImNsaWVudF9zZWNyZXQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoicmVmcmVzaF90b2tlbiIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJhY2Nlc3NfdG9rZW4iLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoieGVyby10ZW5hbnQtaWQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9XQ==)
 
 ### 2. Create an OAuth2 app at https://developer.xero.com/myapps
-Go to the Xero developer portal and create a public app.
+Go to the Xero developer portal and create an OAuth2 app.
 
 ![create an oauth2 app](images/create-public.png)
 
 If you haven't already signed up for a xero account you can do so [here](https://www.xero.com/signup/api/).
 
-### 3. Add your consumer key and consumer secret to the Xero environment variables in Postman
-Copy the consumer key and consumer secret of your app into the ConsumerKey and ConsumerSecret environment variables in Postman.
+Use the following values:
+* App Name - your choice, but can't contain the work 'Xero'
+* Company or application URL - this needs to be an https address, but isn't used.
+* OAuth 2.0 redirect URI - also needs to be https but won’t be used in postman
+
+Then:
+1. Click Create App
+1. Click Generate a secret
+1. Keep the page open
+
+### 3. Add your first set of environment variables in Postman
+Copy the ClientID, Client Secret, redirect URIconsumer key and consumer secret of your app into the ConsumerKey and ConsumerSecret environment variables in Postman.
 
 ![get credentials](images/credentials.png)
 
