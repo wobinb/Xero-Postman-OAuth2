@@ -12,7 +12,7 @@ Click the button below and select the Desktop version of Postman (Chrome extensi
 ### 2. Create an OAuth2 app at https://developer.xero.com/myapps
 Go to the Xero developer portal and create an OAuth2 app.
 
-![create an oauth2 app](images/create-public.png)
+![create an oauth2 app](images/add_app.png)
 
 If you haven't already signed up for a xero account you can do so [here](https://www.xero.com/signup/api/).
 
