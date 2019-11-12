@@ -46,7 +46,7 @@ In addition, to make a test call we would also suggest adding:
 
 Add the scopes required to the `scopes` environment variable.
 
-![Add some Scopes to your Environment](images/3_2_addScopesToEnvironment.PNG)
+![Add some Scopes to your Environment](images/4_1_addScopesToEnvironment.PNG)
 
 ### 5. Generate your access token
 1. Double-click on the GET Get Started request under the Xero OAuth 2.0 Collection
