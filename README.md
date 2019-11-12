@@ -7,12 +7,12 @@ Follow these steps to quickly get up and running with the Xero API and Postman:
 ### 1. Import the Xero OAuth 2.0 collection and Xero environment into Postman
 Click the button below and select the Desktop version of Postman (Chrome extension doesn't support environment variables):
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/44bab8dfdb636910ba15#?env%5BOAuth2.0%5D=W3sia2V5IjoiY2xpZW50X2lkIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6ImNsaWVudF9zZWNyZXQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoicmVmcmVzaF90b2tlbiIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJhY2Nlc3NfdG9rZW4iLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoieGVyby10ZW5hbnQtaWQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9XQ==)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9d6c212aaab7bd95d898)
+
+Alternatively, download the OAuth 2.0.postman_environment and Xero OAuth2.0.postman_collection JSON files above and Import them into Postman via the Import button in the top left of Postman.
 
 ### 2. Create an OAuth2 app at https://developer.xero.com/myapps
 Go to the Xero developer portal and create an OAuth2 app.
-
-![create an oauth2 app](images/add_app.png)
 
 If you haven't already signed up for a xero account you can do so [here](https://www.xero.com/signup/api/).
 
@@ -21,77 +21,92 @@ Use the following values:
 * Company or application URL - this needs to be an https address, but isn't used.
 * OAuth 2.0 redirect URI - also needs to be https but won’t be used in postman
 
+![create an oauth2 app](images/2_1_addApp.PNG)
+
 Then:
 1. Click Create App
 1. Click Generate a secret
 1. Keep the page open
 
+![your newly created app details](images/2_2_createdAppDetails.PNG)
+
 ### 3. Add your first set of environment variables in Postman
-Copy the ClientID, Client Secret, redirect URI from the My Apps screen into the environment variables in Postman.
+Copy the ClientID, Client Secret, redirect URI from the My Apps screen into the environment variables in Postman. To add these details to the Environment, make sure you have the OAuth 2.0 Environment selected, click the eye button, then edit.
 
-![get credentials](images/credentials.png)
-
-![manage environment](images/environment.png)
+![Environment with some details](images/3_1_addedToEnvironment.PNG)
 
 ### 4. Add the scopes for the endpoints you will be accessing.
 Our Developer Center lists the available scopes [here](https://developer.xero.com/documentation/oauth2/scopes). For getting started you will need at least:
 
-`openid profile email offline_access`
+`offline_access accounting.transactions`
 
 In addition, to make a test call we would also suggest adding:
 
-`accounting.transactions accounting.contacts accounting.settings`
+`openid profile email accounting.contacts accounting.settings`
 
 Add the scopes required to the `scopes` environment variable.
 
-### 5. Select the Xero environment
-Select Xero from the environment drop-down menu in Postman
+![Add some Scopes to your Environment](images/3_1_addedToEnvironment.PNG)
 
-![select environment](images/select-env.png)
-
-### 6. Generate your access token
-1. Double-click on the GET Get Started request
+### 5. Generate your access token
+1. Double-click on the GET Get Started request under the Xero OAuth 2.0 Collection
 1. Select the Authorization tab
 1. Click Get New Access Token
+
+![Click the Get new Access Token Button](images/5_1_generateAccessToken.png)
+
+1. Add the Variable names surronded by {{}} from your Environment into the fields, as shown in the screenshot below
+1. Add https://login.xero.com/identity/connect/authorize to the Auth URL field
+1. Add https://identity.xero.com/connect/token to the Access Token Field
 1. Click Request Token
 
-At this stage you will be prompted to logn to Xero. Enter your normal Xero credentials and choose an organisation from the list. 
+![Request your Access Token](images/5_2_addTheVariablesAndURLs.PNG)
+
+At this stage you will be prompted to logn to Xero. 
+
+![Login to Xero](images/5_3_askedToLogin.PNG)
+
+If you've included the 'openid profile email' scopes, you'll be asked to access your basic profile information.
+
+![Allow Basic Profile Information](images/5_4_basicProfile.PNG)
+
+You'll then be taken through to the Organisation Select window. Select the Organisation you want to connect to. If you want to connect to more than one Organisation, you can repeat the steps above and select another Organisation. 
+
+![Select your Organisation](images/5_5_selectOrganisation.PNG)
 
 Once complete you'll be passed back to Postman.
 
-![GET request token](images/request.png)
-
-### 7. Set your Access and Refresh Tokens
-We now have the last remaining tokens needed to access the Xero API. These need to be set in Postman, to do this:
+### 6. Set your Access and Refresh Tokens
+We now have the last remaining tokens needed to access the Xero API. These need to be set to the Environment Variables, to do this:
 1. Highlight the Access Token
 1. Right-click on it
 1. Select Set > OAuth 2.0 > access_token
 
 Follow the same process for the Refresh Token.
 
-![GET oauth verifier](images/verifier.png)
+![Set your Access and Refresh Tokens](images/6_1_setTheAccessAndRefreshTokens.png)
 
-### 8. Find out which tenants (organisations) we are connected to
+### 7. Find out which tenants (organisations) we are connected to
 
 1. Double-click on the GET Connections request
 1. Click Send
-1. Highlight the tenantId from the response and select Set > OAuth 2.0 > xero-tenant-id
+1. Highlight the tenantId from the response, right click and select Set > OAuth 2.0 > xero-tenant-id
 
 ![GET access token](images/access.png)
 
 Congrats! You're now authenticated and can start making API calls. Your access token will last for 12mins, after which time you'll need to refresh the token.
 
-### 9. Make your first API call!
+### 8. Make your first API call!
 1. Double-click to load the GET Invoices request
 1. Ensure No Auth is set on the Authorization tab
 1. Click Send
 
-### 10. Refreshing the token
+### 9. Refreshing the token
 1. Double-click to load the POST Refresh token request
 1. Ensure No Auth is set on the Authorization tab
 1. Click Send
 
-### 11. Import our OpenAPI definition - NOT TESTED
+### 10. Import our OpenAPI definition - NOT TESTED
 Now that you're authenticated, import the [official Xero OpenAPI](https://github.com/XeroAPI/Xero-OpenAPI) (Swagger) description and import all the endpoints for the Accounting API. 
 
 ### Notes:
