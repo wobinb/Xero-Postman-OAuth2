@@ -66,7 +66,7 @@ At this stage you will be prompted to logn to Xero.
 
 ![Login to Xero](images/5_3_askedToLogin.PNG)
 
-If you've included the 'openid profile email' scopes, you'll be asked to access your basic profile information.
+If you've included the `openid profile email` scopes, you'll be asked to access your basic profile information.
 
 ![Allow Basic Profile Information](images/5_4_basicProfile.PNG)
 
@@ -90,11 +90,11 @@ Follow the same process for the Refresh Token.
 
 1. Double-click on the GET Connections request
 1. Click Send
-1. Highlight the tenantId from the response, right click and select Set > OAuth 2.0 > xero-tenant-id
+1. Like we did for the Access and Refresh Tokens, highlight the tenantId from the response, right click and select Set > OAuth 2.0 > xero-tenant-id
 
-![GET access token](images/access.png)
+![GET access token](images/7_1_addTheTenantID.PNG)
 
-Congrats! You're now authenticated and can start making API calls. Your access token will last for 12mins, after which time you'll need to refresh the token.
+Congrats! You're now authenticated and can start making API calls. Your access token will last for 12mins, after which time you'll need to refresh the token. 
 
 ### 8. Make your first API call!
 1. Double-click to load the GET Invoices request
