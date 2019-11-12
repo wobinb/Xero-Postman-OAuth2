@@ -27,25 +27,41 @@ Then:
 1. Keep the page open
 
 ### 3. Add your first set of environment variables in Postman
-Copy the ClientID, Client Secret, redirect URIconsumer key and consumer secret of your app into the ConsumerKey and ConsumerSecret environment variables in Postman.
+Copy the ClientID, Client Secret, redirect URI from the My Apps screen into the environment variables in Postman.
 
 ![get credentials](images/credentials.png)
 
 ![manage environment](images/environment.png)
 
-### 4. Select the Xero environment
+### 4. Add the scopes for the endpoints you will be accessing.
+Our Developer Center lists the available scopes [here](https://developer.xero.com/documentation/oauth2/scopes). For getting started you will need at least:
+
+`openid profile email offline_access`
+
+In addition, to make a test call we would also suggest adding:
+
+`accounting.transactions accounting.contacts accounting.settings`
+
+Add the scopes required to the `scopes` environment variable.
+
+### 5. Select the Xero environment
 Select Xero from the environment drop-down menu in Postman
 
 ![select environment](images/select-env.png)
 
-### 5. Get your request token
-Hit Send on the GET Request Token call in Postman. 
+### 6. Generate your access token
+1. Double-click on the GET Get Started request
+1. Select the Authorization tab
+1. Click Get New Access Token
+1. Click Request Token
 
-In the response section go to the Test Results tab and copy the authorization url.
+At this stage you will be prompted to logn to Xero. Enter your normal Xero credentials and choose an organisation from the list. 
+
+Once complete you'll be passed back to Postman.
 
 ![GET request token](images/request.png)
 
-### 6. Get your oauth verifier
+### 7. Get your oauth verifier
 Paste the authorization url into your browser, login to xero, select the org to connect to and copy the oauth verifier to your clipboard.
 
 ![GET oauth verifier](images/verifier.png)
