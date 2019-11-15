@@ -17,7 +17,7 @@ Go to the Xero developer portal and create an OAuth2 app.
 If you haven't already signed up for a xero account you can do so [here](https://www.xero.com/signup/api/).
 
 Use the following values:
-* App Name - your choice, but can't contain the work 'Xero'
+* App Name - your choice, but can't contain the word 'Xero'
 * Company or application URL - this needs to be an https address, but isn't used.
 * OAuth 2.0 redirect URI - also needs to be https but won’t be used in postman
 
