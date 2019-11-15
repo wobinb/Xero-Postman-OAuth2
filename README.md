@@ -31,7 +31,7 @@ Then:
 ![your newly created app details](images/2_2_createdAppDetails.PNG)
 
 ### 3. Add your first set of environment variables in Postman
-Copy the ClientID, Client Secret, redirect URI from the My Apps screen into the environment variables in Postman. To add these details to the Environment, make sure you have the OAuth 2.0 Environment selected, click the eye button, then edit.
+Copy the Client id, Client secret and OAuth 2.0 redirect URI from the My Apps screen into the environment variables in Postman. To add these details to the Environment, make sure you have the OAuth 2.0 Environment selected, click the eye button, then edit.
 
 ![Environment with some details](images/3_1_addedToEnvironment.PNG)
 
