@@ -106,8 +106,5 @@ Congrats! You're now authenticated and can start making API calls. Your access t
 1. Ensure No Auth is set on the Authorization tab
 1. Click Send
 
-### 10. Import our OpenAPI definition - NOT TESTED
-Now that you're authenticated, import the [official Xero OpenAPI](https://github.com/XeroAPI/Xero-OpenAPI) (Swagger) description and import all the endpoints for the Accounting API. 
-
 ### Notes:
 * We use the built in OAuth 2.0 support to get the token, however we then set this as an environment variable. So we don't need to use this support when making the normal API calls.
