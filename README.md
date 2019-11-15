@@ -80,7 +80,7 @@ Once complete you'll be passed back to Postman.
 We now have the last remaining tokens needed to access the Xero API. These need to be set to the Environment Variables, to do this:
 1. Highlight the Access Token
 1. Right-click on it
-1. Select Set > OAuth 2.0 > access_token
+1. Select Set: OAuth 2.0 > access_token
 
 Follow the same process for the Refresh Token.
 
