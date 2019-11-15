@@ -62,7 +62,7 @@ Add the scopes required to the `scopes` environment variable.
 
 ![Request your Access Token](images/5_2_addTheVariablesAndURLs.PNG)
 
-At this stage you will be prompted to logn to Xero. 
+At this stage you will be prompted to log in to Xero. 
 
 ![Login to Xero](images/5_3_askedToLogin.PNG)
 
