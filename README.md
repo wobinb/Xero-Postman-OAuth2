@@ -40,7 +40,7 @@ Our Developer Center lists the available scopes [here](https://developer.xero.co
 
 `offline_access accounting.transactions`
 
-In addition, to make a test call we would also suggest adding:
+In addition, to make further test calls we would also suggest adding:
 
 `openid profile email accounting.contacts accounting.settings`
 
